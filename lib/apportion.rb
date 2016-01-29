@@ -14,6 +14,7 @@ module Apportion
   # @param weights [Hash] relative integer proportions
   # @param size [Integer] quantity to apportion
   # @param options [Hash]
+  # @option options [Hash] :prior_portions from a previous apportionment
   # @option options [Integer] :required_minimum smallest portion for each recipient
   # @return [Hash] portions
   # @example

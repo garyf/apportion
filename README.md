@@ -6,10 +6,14 @@ A Ruby implementation for apportionment
 Apportionment is most often associated with the [US Congressional apportionment][congress_ep],
 using the **Equal Proportions** (or Huntington-Hill) method.
 
-Other domains might make use of apportionment. One example includes the division of a scarce
-resource among recipients, according to a pre-determined set of recipient weights.
-In this usage, the apportionment might occur at regular intervals, and each apportionment
-might actually be more of a re-balancing operation.
+In general, apportionment involves the division of a scarce resource among recipients, according
+to a pre-determined set of recipient weights. Further, a series of apportionments might occur over
+time, with each new apportionment overlaying the previous.
+
+Different domains might make use of apportionment. One example is the allocation (or distribution)
+of sellable inventory among a number of retail stores, according to the expected sales rate for
+each store. For this usage, recipients would likely begin an apportionment with varying quantities
+of existing inventory.
 
 Other apportionment methods exist, notably the [**Quota**][ams_balinski] method,
 that address issues with **Equal Proportions**.
@@ -32,13 +36,21 @@ Or install it yourself as
 
 ## Usage
 
-### Apportion.division(weights, size)
+### Apportion.division(weights, size, options = {})
 
-Returns a hash with the size quantity distributed among recipients
+Returns a hash (a key for each recipient) with the size quantity distributed among recipients
+(as values)
 
-`weights` (required) a hash of relative integer proportions for each recipient
+#### Parameters
 
-`size` (required) an integer quantity to apportion
+`weights` (required) a [Hash] of relative integer proportions for each recipient
+
+`size` (required) an [Integer] quantity to apportion
+
+`options` (optional) [Hash] keys
+
+* **:prior_portions** a [Hash] prior portions for each recipient from a previous apportionment
+* **:required_minimum** an [Integer] smallest portion for each recipient
 
 ## Development
 
