@@ -1,4 +1,4 @@
-# Apportion
+# Apportion [![travis][ci_img]][travis] [![yard docs][yd_img]][yard_docs] [![code climate][cc_img]][code_climate]
 
 A Ruby implementation for apportionment
 
@@ -69,3 +69,10 @@ The gem is available as open source under the terms of the [MIT License][license
 [congress_ep]: https://en.wikipedia.org/wiki/United_States_congressional_apportionment#The_method_of_equal_proportions
 [ams_balinski]: https://www.maa.org/sites/default/files/pdf/upload_library/22/Ford/BalinskiYoung.pdf
 [license]: http://opensource.org/licenses/MIT
+
+[travis]: https://travis-ci.org/garyf/apportion
+[ci_img]: https://travis-ci.org/garyf/apportion.svg?branch=master
+[yard_docs]: http://www.rubydoc.info/github/garyf/apportion
+[yd_img]: http://img.shields.io/badge/yard-docs-blue.svg
+[code_climate]: https://codeclimate.com/github/garyf/apportion
+[cc_img]: https://codeclimate.com/github/garyf/apportion/badges/gpa.svg
