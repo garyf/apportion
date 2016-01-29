@@ -16,6 +16,15 @@ describe 'Apportion via equal proportions w options[:required_minimum]' do
       assert_equal({a: 4, b: 2, c: 2}, division(weights, 8, required_minimum: 2))
     end
 
+    describe 'US census 2010' do
+      let(:path_to_fixtures) { 'test/fixtures/census' }
+      let(:populations) { file_read_json_to_hash(path_to_fixtures, 'populations_2010.json') }
+      let(:apportionment) { file_read_json_to_hash(path_to_fixtures, 'apportionment_2010.json') }
+      it 'four hundred, thirty five' do
+        assert_equal(apportionment, division(populations, 435, required_minimum: 1))
+      end
+    end
+
     describe 'w greatly unbalanced weights' do
       let(:big_weight) { Apportion::Algorithm::EqualProportions::BIG_FIXNUM }
       let(:minimums) { {a: 1, b: 1, c: 1} }

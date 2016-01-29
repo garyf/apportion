@@ -21,6 +21,15 @@ describe 'Apportion via equal proportions' do
       assert_equal({a: 4, b: 3, c: 3}, division(weights, 10))
     end
 
+    describe 'US census 2010' do
+      let(:path_to_fixtures) { 'test/fixtures/census' }
+      let(:populations) { file_read_json_to_hash(path_to_fixtures, 'populations_2010.json') }
+      let(:apportionment) { file_read_json_to_hash(path_to_fixtures, 'apportionment_2010.json') }
+      it 'four hundred, thirty five' do
+        assert_equal(apportionment, division(populations, 435))
+      end
+    end
+
     describe 'w greatly unbalanced weights' do
       let(:big_weight) { Apportion::Algorithm::EqualProportions::BIG_FIXNUM }
       it 'three comparison' do
