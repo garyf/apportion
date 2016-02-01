@@ -23,8 +23,8 @@ describe 'Apportion via equal proportions' do
 
     describe 'US census 2010' do
       let(:path_to_fixtures) { 'test/fixtures/census' }
-      let(:populations) { file_read_json_to_hash(path_to_fixtures, 'populations_2010.json') }
-      let(:apportionment) { file_read_json_to_hash(path_to_fixtures, 'apportionment_2010.json') }
+      let(:populations) { Apportion::Util.file_read_json_to_hash(path_to_fixtures, 'populations_2010.json') }
+      let(:apportionment) { Apportion::Util.file_read_json_to_hash(path_to_fixtures, 'apportionment_2010.json') }
       it 'four hundred, thirty five' do
         assert_equal(apportionment, division(populations, 435))
       end

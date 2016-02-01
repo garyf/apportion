@@ -4,8 +4,6 @@ require 'apportion/util'
 
 # Top level interface, or API, to distribute a quantity among recipients
 module Apportion
-  include Apportion::Setup
-  include Apportion::Util
   module_function
 
   # Distributes a quantity among recipients by dividing proportionally according to relative
@@ -22,9 +20,9 @@ module Apportion
   #   # => {a: 3, b: 2, c: 2}
 
   def division(weights, size, options = {})
-    portions = initial_portions(weights.keys, options)
-    sum_portions = hash_values_sum(portions)
-    validate(size, sum_portions)
+    portions = Setup.initial_portions(weights.keys, options)
+    sum_portions = Util.hash_values_sum(portions)
+    Setup.validate(size, sum_portions)
     next_step(weights, portions, sum_portions, size)
   end
 
